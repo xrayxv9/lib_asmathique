@@ -6,3 +6,4 @@
 #include <stdlib.h>
 
 ssize_t ft_strlen(char *str);
+char *ft_strcpy(char *, char *);

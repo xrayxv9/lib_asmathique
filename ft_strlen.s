@@ -2,14 +2,14 @@ global ft_strlen
 
 section .text
 ft_strlen:
-	mov rax, 0 ; I take a 64 bytes number to be sure that my text ain't long enought to make me overflow
-	jmp loop ; i go to my my main loop (equivalent of a while)
+	mov rax, rdi ; i put my parameter char * in the rax space
 
-loop:
-	cmp byte [rdi + rax], 0x0 ; I compare with cmp the byte placed at rdi (the first parameter of my function) + my rax (my value that checks all the chars)
-	je return
-	inc rax
-	jmp loop
+.loop: ; calling it .loop so that it a local thing
+	cmp byte [rax], 0x0 ; Checking if the rax is currently on the 0x0 (NULL)
+	je .return ; I call the return the return function to stop everything once on the null byte
+	inc rax ; (*str)++
+	jne .loop ; go back to the begining of the label '.loop'
 
-return:
-	ret 
+.return:
+	sub rax, rdi ; watching how many chars I have gone through
+	ret ; returns rax
