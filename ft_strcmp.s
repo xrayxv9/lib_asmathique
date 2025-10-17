@@ -1,7 +1,7 @@
 global ft_strcmp
 
 ft_strcmp:
-	movzx rcx, byte [rdi]
+	mov cl, byte [rdi]
 	cmp cl, byte [rsi]
 	jne .exit
 	test cl, byte [rsi]
