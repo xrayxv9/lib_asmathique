@@ -1,12 +1,15 @@
 #include "libasm.h"
 #include <string.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-
-int main(int ac, char *av[])
+int main()
 {
-	char *str = "coucou je suis un texte\n";
-	write(1, str, ft_strlen(str));
-	ft_write(1, str, ft_strlen(str));
-	perror("Error");
+	int fd = open("explications.txt", O_RDONLY);
+	char str[100] = {'\0'};
+
+	ft_read(fd, &str, 50);
+	printf("str : %s\n", str);
+	close(fd);
 }
