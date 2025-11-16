@@ -1,0 +1,4 @@
+obj/
+a.out
+main.o
+compile_commands.json
