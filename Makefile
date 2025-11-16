@@ -8,7 +8,7 @@ SRC = ft_strlen.s \
 	  ft_strcpy.s \
 	  ft_strcmp.s \
 	  ft_write.s \
-	  # ft_read.s \
+	  ft_read.s \
 	  # ft_strdup.s \
 
 SRC_BONUS = ft_atoi_base.s \
