@@ -1,4 +1,13 @@
-#include "../libasm.h"
+#include <stdio.h>
+#define TRUE 1
+#define FALSE 0
+int ft_strlen(char *str)
+{
+	int i = 0;
+
+	while (str[i++]);
+	return i;
+}
 
 int parsing_base(char *base)
 {
@@ -13,11 +22,11 @@ int parsing_base(char *base)
 		if (base[i] == '+' || base[j] == '-')
 			return -3;
 		while(base[j])
-			if (base[j] == base[i])
+			if (base[j++] == base[i])
 				return -2;
 		i++;
 	}
-	return 0;
+	return FALSE;
 }
 
 int charInBase(char *base, char c)
@@ -42,11 +51,12 @@ int charInBase(char *base, char c)
 int atoi_base(char *str, char *base)
 {
 	int res = parsing_base(base);
-	if (base)
+	if (res)
 		return res; 
 	int len = ft_strlen(base);
 	int i = 0;
 	int sign = 1;
+	int nbr = 0;
 
 	if (!str)
 		return 0;
@@ -56,14 +66,15 @@ int atoi_base(char *str, char *base)
 		if (str[i++] == '-')
 			sign = -1;
 	while (str[i] && charInBase(base, str[i])){
-		
+		printf("coucou\n");
+		nbr = len * nbr + ();
+		i++;
 	}
-	return 0;
+	return nbr * sign;
 }
 
 
 int main()
 {
-
-
+	printf("%d\n", atoi_base("10", "10"));
 }
