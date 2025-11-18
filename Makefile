@@ -13,6 +13,7 @@ SRC = ft_strlen.s \
 
 SRC_BONUS = ft_atoi_base.s \
 			ft_list_push_front.s \
+			ft_list_sort.s \
 			ft_list_size.s \
 			ft_list_remove_if.s \
 
@@ -20,8 +21,10 @@ SRC_BONUS = ft_atoi_base.s \
 OBJ_PATH = obj/
 
 OBJ_SRC = $(SRC:.s=.o)
+OBJ_BONUS = $(SRC_BONUS:.s=.o)
 
 OBJS_SRC = $(addprefix $(OBJ_PATH), $(OBJ_SRC))
+OBJS_BONUS = $(addprefix $(OBJ_PATH), $(OBJ_BONUS))
 
 all: $(NAME)
 
@@ -38,6 +41,9 @@ clean:
 fclean: clean
 	rm -fr $(NAME)
 
+bonus: $(OBJS_SRC) $(OBJS_BONUS)
+	ar -rcs $(NAME) $(OBJS_SRC) $(OBJS_BONUS)
+	
 re : fclean all
 
 .PHONY: all fclean clean re

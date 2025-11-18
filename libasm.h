@@ -10,6 +10,8 @@
 #define YELLOW  "\033[33m"
 #define BLUE    "\033[34m"
 #define RESET   "\033[0m"
+#define TRUE 1
+#define FALSE 0
 
 ssize_t	ft_strlen(char *);
 char	*ft_strcpy(char *, char *);
