@@ -5,7 +5,8 @@ int ft_strlen(char *str)
 {
 	int i = 0;
 
-	while (str[i++]);
+	while (str[i])
+		i++;
 	return i;
 }
 
@@ -19,7 +20,7 @@ int parsing_base(char *base)
 	while (base[i])
 	{
 		j = i + 1;
-		if (base[i] == '+' || base[j] == '-')
+		if (base[i] == '+' || base[i] == '-')
 			return -3;
 		while(base[j])
 			if (base[j++] == base[i])
@@ -38,13 +39,13 @@ int charInBase(char *base, char c)
 		if (*base == c)
 		{
 			base = base - i;
-			return TRUE;
+			return i;
 		}
 		base++;
 		i++;
 	}
 	base = base - i;
-	return FALSE;
+	return -1;
 	
 }
 
@@ -65,9 +66,8 @@ int atoi_base(char *str, char *base)
 	if (str[i] && (str[i] == '-' || str[i] == '+'))
 		if (str[i++] == '-')
 			sign = -1;
-	while (str[i] && charInBase(base, str[i])){
-		printf("coucou\n");
-		nbr = len * nbr + ();
+	while (str[i] && charInBase(base, str[i]) != -1){
+		nbr = len * nbr + charInBase(base, str[i]);
 		i++;
 	}
 	return nbr * sign;
@@ -76,5 +76,5 @@ int atoi_base(char *str, char *base)
 
 int main()
 {
-	printf("%d\n", atoi_base("10", "10"));
+	printf("%d\n", atoi_base("1000", "01"));
 }
