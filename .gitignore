@@ -1,7 +1,6 @@
 obj/
 a.out
 main.o
-main.c
 ft_test.txt
 test.txt
 compile_commands.json
