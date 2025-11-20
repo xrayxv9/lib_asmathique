@@ -23,3 +23,9 @@ char	*ft_strdup(char *str);
 
 // BONUS
 size_t ft_atoi_base(char *number, char *base);
+
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*data;
+}	t_list;
