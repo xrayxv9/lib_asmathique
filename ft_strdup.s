@@ -26,3 +26,5 @@ ft_strdup:
 .malloc_failed:
 	mov rax, 0
 	ret
+
+section .note.GNU-stack

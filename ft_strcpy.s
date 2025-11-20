@@ -17,3 +17,5 @@ ft_strcpy:
 .return:
 	mov byte [rdi], 0 ; puts the \0
 	ret ; ret the rax which is the pointer untouched of the rsi
+
+section .note.GNU-stack

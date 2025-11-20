@@ -19,3 +19,5 @@ ft_write:
 	mov [rax], rdi ; met le rdi dans la variable global erno
 	mov rax, -1 ; return -1
 	ret
+
+section .note.GNU-stack

@@ -13,3 +13,5 @@ ft_strlen:
 .return:
 	sub rax, rdi ; watching how many chars I have gone through
 	ret ; returns rax
+
+section .note.GNU-stack

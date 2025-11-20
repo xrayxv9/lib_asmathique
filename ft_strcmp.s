@@ -17,3 +17,5 @@ ft_strcmp:
 	movzx ecx, byte [rsi]
 	sub eax, ecx
 	ret
+
+section .note.GNU-stack
