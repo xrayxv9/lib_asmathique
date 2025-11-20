@@ -154,6 +154,7 @@ int main(void)
 	printf("number :  %lu\n", ft_atoi_base("1111", "0"));
 	printf("number :  %lu\n", ft_atoi_base("1000", ""));
 	printf("number :  %lu\n", ft_atoi_base("1000", NULL));
+	printf("number :  %lu\n", ft_atoi_base(NULL, "01"));
 	printf("number :  %lu\n", ft_atoi_base(" \n\r\t1000", "01"));
 	printf("number :  %lu\n", ft_atoi_base("11", "0123456789ABCDEF"));
 }

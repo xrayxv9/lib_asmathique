@@ -4,6 +4,10 @@ global ft_atoi_base
 extern ft_strlen
 
 ft_atoi_base:
+	test rdi, rdi
+	jz .ret_rax
+	test rsi, rsi
+	jz .ret_rax
 	push rdi
 	push rsi
 	mov rdi, rsi
@@ -76,8 +80,6 @@ ft_atoi_base:
 	ret
 
 parsing_base:
-	test rdi, rdi
-	jz .error
 	cmp byte [rdi], 0
 	je .error
 	cmp byte [rdi + 1], 0
