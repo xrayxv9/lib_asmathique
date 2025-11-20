@@ -46,7 +46,6 @@ int charInBase(char *base, char c)
 	}
 	base = base - i;
 	return -1;
-	
 }
 
 int atoi_base(char *str, char *base)
