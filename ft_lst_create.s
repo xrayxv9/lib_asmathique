@@ -16,7 +16,7 @@ ft_lst_create:
 
 	push rdi
 	mov rdi, 16
-	call malloc
+	call malloc wrt ..plt
 	test rax, rax
 	pop rdi
 	jz .err
@@ -24,8 +24,11 @@ ft_lst_create:
 	mov qword [rax], 0
 	mov qword [rax + 8], rdi
 
-	pop rsp
+	pop rbp
+	ret
 
 .err:
 	mov rax, 0
 	ret
+
+section .note.GNU-stack
