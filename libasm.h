@@ -32,3 +32,5 @@ char	*ft_strdup(char *str);
 size_t	ft_atoi_base(char *number, char *base);
 t_list	*ft_lst_create(void *data);
 void	ft_list_push_front(t_list **begin_list, void *data);
+int		ft_list_size(t_list *begin_list);
+void	ft_list_sort(t_list **begin_list, int (*cmp)());

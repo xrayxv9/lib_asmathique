@@ -39,22 +39,32 @@
 // 	{
 // 		char dest[] = "coucou je suis un text";
 // 		char src[] = "coucou je suis un text";
-// 		printf("%s\n", strcpy(dest, src));
+// 		printf("%d\n", strcmp(dest, src));
 //
 // 		char dest2[] = "coucou";
 // 		char src2[] = "couco";
-// 		printf("%s\n", strcpy(dest2, src2));
+// 		printf("%d\n", strcmp(dest2, src2));
+// 		
+// 		char dest3[] = "couc";
+// 		char src3[] = "couco";
+// 		printf("%d\n", strcmp(dest3, src3));
+//
 // 	}
 //
 // 	printf(BLUE"\n <<<<<<<<<< ft_strcmp >>>>>>>>>>\n" RESET);
 // 	{
 // 		char dest[] = "coucou je suis un text";
 // 		char src[] = "coucou je suis un text";
-// 		printf("%s\n", ft_strcpy(dest, src));
+// 		printf("%d\n", ft_strcmp(dest, src));
 //
 // 		char dest2[] = "coucou";
 // 		char src2[] = "couco";
-// 		printf("%s\n", ft_strcpy(dest2, src2));
+// 		printf("%d\n", ft_strcmp(dest2, src2));
+//
+// 		char dest3[] = "couc";
+// 		char src3[] = "couco";
+// 		printf("%d\n", ft_strcmp(dest3, src3));
+//
 // 	}
 //
 //
@@ -171,6 +181,10 @@ int main(void)
 		ft_list_push_front(&lst, ft_strdup(buff));
 	}
 	tmp = lst;
+	printf("size : %d\n", ft_list_size(lst));
+
+	ft_list_sort(&lst, ft_strcmp);
+
 	while (tmp)
 	{
 		printf("lst : %s\n", (char *)tmp->data);
@@ -179,8 +193,6 @@ int main(void)
 		free(to_free->data);
 		free(to_free);
 	}
-
-
 }
 
 // int main()
