@@ -15,8 +15,6 @@ ft_list_push_front:
 	mov rbx, [rdi]
 	mov qword [rax], rbx
 	mov [rdi], rax
-	ret
-	
 .error:
 	ret
 
