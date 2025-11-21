@@ -148,15 +148,39 @@
 
 int main(void)
 {
-	printf("number :  %lu\n", ft_atoi_base("1000", "01"));
-	printf("number :  %lu\n", ft_atoi_base("100a", "01"));
-	printf("number :  %lu\n", ft_atoi_base("1000", "011"));
-	printf("number :  %lu\n", ft_atoi_base("1111", "0"));
-	printf("number :  %lu\n", ft_atoi_base("1000", ""));
-	printf("number :  %lu\n", ft_atoi_base("1000", NULL));
-	printf("number :  %lu\n", ft_atoi_base(NULL, "01"));
-	printf("number :  %lu\n", ft_atoi_base(" \n\r\t1000", "01"));
-	printf("number :  %lu\n", ft_atoi_base("11", "0123456789ABCDEF"));
+	// first bonus
+	// printf("number :  %lu\n", ft_atoi_base("1000", "01"));
+	// printf("number :  %lu\n", ft_atoi_base("100a", "01"));
+	// printf("number :  %lu\n", ft_atoi_base("1000", "011"));
+	// printf("number :  %lu\n", ft_atoi_base("1111", "0"));
+	// printf("number :  %lu\n", ft_atoi_base("1000", ""));
+	// printf("number :  %lu\n", ft_atoi_base("1000", NULL));
+	// printf("number :  %lu\n", ft_atoi_base(NULL, "01"));
+	// printf("number :  %lu\n", ft_atoi_base(" \n\r\t1000", "01"));
+	// printf("number :  %lu\n", ft_atoi_base("11", "0123456789ABCDEF"));
+
+	// second bonus
+	t_list *lst = ft_lst_create(ft_strdup("coucou"));
+	t_list *tmp = lst;
+	t_list *to_free;
+	char buff[100];
+
+	for (int i = 0; i< 10; i++)
+	{
+		sprintf(buff, "coucou%d", i);
+		ft_list_push_front(&lst, ft_strdup(buff));
+	}
+	tmp = lst;
+	while (tmp)
+	{
+		printf("lst : %s\n", (char *)tmp->data);
+		to_free = tmp;
+		tmp = tmp->next;
+		free(to_free->data);
+		free(to_free);
+	}
+
+
 }
 
 // int main()

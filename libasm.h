@@ -13,6 +13,13 @@
 #define TRUE 1
 #define FALSE 0
 
+// STRUCT BONUS
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*data;
+}	t_list;
+
 // MANDATORY
 ssize_t	ft_strlen(char *);
 char	*ft_strcpy(char *, char *);
@@ -22,10 +29,6 @@ ssize_t ft_read(int fd, void *buf, size_t count);
 char	*ft_strdup(char *str);
 
 // BONUS
-size_t ft_atoi_base(char *number, char *base);
-
-typedef struct s_list
-{
-	struct s_list	*next;
-	void			*data;
-}	t_list;
+size_t	ft_atoi_base(char *number, char *base);
+t_list	*ft_lst_create(void *data);
+void	ft_list_push_front(t_list **begin_list, void *data);
