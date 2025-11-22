@@ -10,6 +10,8 @@ ft_list_sort:
 	jz .finish
 	test rdi, [rdi]
 	jz .finish
+	test rsi, rsi
+	jz .finish
 	mov rbx, [rdi]
 .first_loop:
 	test rbx, rbx
