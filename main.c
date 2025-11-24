@@ -177,17 +177,17 @@ int main(void)
 
 	for (int i = 0; i< 10; i++)
 	{
-		if (i == 0)
+		if (i <= 5)
 			sprintf(buff, "coucou%d", 1);
 		else
 			sprintf(buff, "coucou%d", 2);
 		ft_list_push_front(&lst, ft_strdup(buff));
 	}
-	tmp = lst;
 	printf("size : %d\n", ft_list_size(lst));
 
 	ft_list_sort(&lst, ft_strcmp);
-	ft_list_remove_if(&lst, "coucou1", ft_strcmp, free);
+	ft_list_remove_if(&lst, "coucou2", ft_strcmp, free);
+	tmp = lst;
 
 	while (tmp)
 	{
