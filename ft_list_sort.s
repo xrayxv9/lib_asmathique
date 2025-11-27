@@ -15,11 +15,11 @@ ft_list_sort:
 	jz		.finish
 	test	rsi, rsi
 	jz		.finish
-	mov		r8, [rdi]
+	mov		rbx, [rdi]
 .first_loop:
-	test	r8, r8
+	test	rbx, rbx
 	jz		.finish
-	mov		rcx, [r8]
+	mov		rcx, [rbx]
 .second_loop:
 	test	rcx, rcx
 	jz		.end_loop
@@ -29,21 +29,21 @@ ft_list_sort:
 	push	rsi
 	mov		rdx, rsi
 	push	rcx
-	push	r8
-	mov		rdi, [r8 + 8]
+	push	rbx
+	mov		rdi, [rbx + 8]
 	mov		rsi, [rcx + 8]
 	call	rdx
-	pop		r8
+	pop		rbx
 	pop		rcx
 	cmp		rax, 0
 	jle		.add_values
 .call:
-	mov		rdi, r8
+	mov		rdi, rbx
 	mov		rsi, rcx
 	push	rcx
-	push	r8
+	push	rbx
 	call	swap
-	pop		r8
+	pop		rbx
 	pop		rcx
 .add_values:
 	pop		rsi
@@ -51,7 +51,7 @@ ft_list_sort:
 	mov		rcx, [rcx]
 	jmp		.second_loop
 .end_loop:
-	mov		r8, [r8]
+	mov		rbx, [rbx]
 	jmp		.first_loop
 
 	
@@ -59,16 +59,16 @@ ft_list_sort:
 	pop		rbp
 	ret
 
-; rdi: r8
+; rdi: rbx
 ; rsi: rcx
 swap:
 	push	rbp
 	mov		rbp, rsp
 	mov		rcx, [rdi + 8]
-	mov		r8, [rsi + 8]
-	mov		qword [rdi + 8], r8
+	mov		rbx, [rsi + 8]
+	mov		qword [rdi + 8], rbx
 	mov		qword [rsi + 8], rcx
-	pop		rsp
+	pop		rbp
 	ret
 
 section .note.GNU-stack
