@@ -5,6 +5,8 @@ extern ft_lst_create
 
 ; ft_list_push_front(t_list **list, void *content)
 ft_list_push_front:
+	push	rbp
+	mov		rbp, rsp
 	
 	test	rdi, rdi
 	jz		.error
@@ -20,5 +22,5 @@ ft_list_push_front:
 	mov		qword [rax], rbx
 	mov		qword [rdi], rax
 .error:
+	pop		rbp
 	ret
-
