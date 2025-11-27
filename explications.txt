@@ -1,7 +1,0 @@
-Voici quelques explications sur des choses un peux plus relou a comprendre,
-ainsi que des zones pour lesquels avoir des bases sera plus efficaces par la suite:
-
-fonctionnement de cmp:
-	cmp rax, 1
-	la commande cmp fonction en faisant une soustraction de mon rax - 1
-	le resultat n'est stocke nul par en revanche il modifie certains flags CPU

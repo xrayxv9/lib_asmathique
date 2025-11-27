@@ -32,11 +32,11 @@ ft_list_remove_if:
 .first_element:
 	mov rbx, [r12]
 	test rbx, rbx
-	je .finish
+	jz .finish
 	mov rdi, [rbx + 8]
 	mov rsi, r13
 	call r14
-	cmp rax, 0
+	test rax, rax
 	je .remove_first
 .loop_remains:
 	test rbx, rbx

@@ -29,7 +29,7 @@ ft_atoi_base:
 	cmp rax, -1
 	je .inc_loop
 .loop_minus_plus:
-	mov al, byte [rdi]
+	movzx rax, byte [rdi]
 	test al, al
 	jz .ret_rax
 	cmp al, '-'
@@ -37,7 +37,7 @@ ft_atoi_base:
 	cmp al, '+'
 	je .plus
 .loop_number:
-	mov al, byte [rdi]
+	movzx rax, byte [rdi]
 	test al, al
 	jz .ret_rax
 	push rdi
@@ -79,6 +79,7 @@ ft_atoi_base:
 	mov rax, 0
 	ret
 
+
 parsing_base:
 	cmp byte [rdi], 0
 	je .error
@@ -87,15 +88,12 @@ parsing_base:
 
 .first_loop:
 	mov rcx, 0
-	push rdi
-	mov rax, rdi
-	call ft_iswhitspace
-	pop rdi
-	je .error
-	cmp rax, 0
-	mov al, byte [rdi]
+	movzx rax, byte [rdi]
 	test al, al
 	jz .end_parsing
+	call ft_iswhitspace
+	cmp rax, 0
+	je .error
 	cmp al, '+'
 	je .error
 	cmp al, '-'
@@ -103,7 +101,7 @@ parsing_base:
 	inc rdi
 
 .second_loop:
-	mov dl, [rdi + rcx]
+	movzx rdx, byte [rdi + rcx]
 	test dl, dl
 	jz .first_loop
 	cmp dl, al
@@ -116,7 +114,6 @@ parsing_base:
 .end_parsing:
 	mov rax, 0
 	ret
-
 
 ; rdi : chaine de string
 ; rsi : char
@@ -163,6 +160,3 @@ ft_iswhitspace:
 .not:
 	mov rax, 0
 	ret
-
-
-section .note.GNU-stack
